@@ -19,13 +19,11 @@ public class B11003 {
         Deque<Node> deque = new LinkedList<>();
         for (int i = 0; i<n; i++) {
             int temp = Integer.parseInt(st.nextToken());
-
-            // 새로들어올 박스의 값보다 더 큰 값이 있다면 pop해주자. 
+            
             while(!deque.isEmpty() && deque.getLast().value > temp) {
                 deque.removeLast();
             }
             deque.addLast(new Node(temp, i));
-            // 너무 오래되서 빼야할 박스들을 빼는 부분
             if (deque.getFirst().index <= i -l) {
                 deque.removeFirst();
             }
